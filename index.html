@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LinkLite URL Shortener by Srinidhi Aganti">
+    <meta name="author" content="Srinidhi Aganti">
+    <title>LinkLite | URL Shortener</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">
+            <span class="brand-mark">↗</span>
+            <span>LinkLite</span>
+        </a>
+        <a class="docs-link" href="/docs" target="_blank">API Docs</a>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="eyebrow">FASTAPI URL SHORTENER</div>
+            <h1>Turn long links into <span>short, shareable URLs.</span></h1>
+            <p>Create a compact link, track clicks, and manage your shortened URLs from one simple dashboard.</p>
+        </section>
+
+        <section class="card shorten-card">
+            <form id="shorten-form">
+                <label for="url-input">Paste your long URL</label>
+                <div class="input-row">
+                    <input
+                        id="url-input"
+                        name="url"
+                        type="url"
+                        placeholder="https://example.com/a/very/long/url"
+                        required
+                    >
+                    <button type="submit" id="shorten-btn">Shorten URL</button>
+                </div>
+                <p id="form-message" class="message"></p>
+            </form>
+
+            <div id="result" class="result hidden">
+                <div>
+                    <span class="result-label">Your short URL</span>
+                    <a id="short-url" href="#" target="_blank"></a>
+                </div>
+                <button id="copy-btn" class="secondary-btn" type="button">Copy</button>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span>Total links</span>
+                <strong id="total-links">0</strong>
+            </div>
+            <div class="stat-card">
+                <span>Total clicks</span>
+                <strong id="total-clicks">0</strong>
+            </div>
+        </section>
+
+        <section class="card history-card">
+            <div class="section-heading">
+                <div>
+                    <h2>Your links</h2>
+                    <p>Recent shortened URLs and click counts.</p>
+                </div>
+                <button id="refresh-btn" class="secondary-btn" type="button">Refresh</button>
+            </div>
+
+            <div id="empty-state" class="empty-state">
+                <div class="empty-icon">↗</div>
+                <h3>No links yet</h3>
+                <p>Create your first short URL above.</p>
+            </div>
+
+            <div id="links-list" class="links-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with Python, FastAPI, SQLAlchemy and SQLite.</p>
+        <p>&copy; 2026 Srinidhi Aganti. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
